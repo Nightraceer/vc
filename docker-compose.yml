@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/hosts:/etc/nginx/conf.d
+      - ./docker/logs:/var/log/nginx
+      - ./:/var/www
+    links:
+      - php
+  php:
+    build: ./docker/images/php
+    links:
+      - mysql
+    volumes:
+      - ./:/var/www
+  mysql:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: vc
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql

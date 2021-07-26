@@ -1,0 +1,5 @@
+db:
+  host: mysql
+  name: vc
+  login: test
+  password: test

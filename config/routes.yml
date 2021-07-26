@@ -1,0 +1,19 @@
+create:
+  path: /ads
+  controller: TestWork\Controller\AdsController
+  methods: ['POST']
+  defaults: { _action: create }
+
+edit:
+  path: /ads/{id}
+  controller: TestWork\Controller\AdsController
+  methods: ['POST']
+  defaults: { _action: edit }
+  requirements:
+    id: '[1-9]+'
+
+relevant:
+  path: /ads/relevant
+  controller: TestWork\Controller\AdsController
+  methods: ['GET']
+  defaults: { _action: relevant }
