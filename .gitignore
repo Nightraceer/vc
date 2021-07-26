@@ -1,0 +1,7 @@
+*.log
+config.yml
+.phpunit.result.cache
+.idea
+.DS_Store
+var/cache
+vendor
